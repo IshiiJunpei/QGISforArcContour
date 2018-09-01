@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">          
+   <section data-markdown data-separator="^\n---$" data-separator-vertical="^\n>>>$">
+    <script type="text/template">
+
+## 等高線を発生させる
+
+---
+## 作業の内容
+
+- 紙図面から標高値を取得してポイントベクタを作成する
+- ポイントベクタから標高ラスタを作成する
+- 標高ラスタから等高線を発生させる
+
+---
+レイヤ→レイヤの作成→新規シェープファイルレイヤ
+<img src="01.png" width=80%>
+
+---
+- タイプ　　　　　　　　　＝点
+- ファイルエンコーディング＝UTF-8
+- CRSの指定　　　　　　　＝後ほど説明
+- 名称＝Level　　　タイプ＝小数点付き数値
+
+<img src="02.png" width=50%>
+
+---
+- EPSGコード　30171
+- Tokyo/Japan Plane Rectangular CS XI（日本測地系平面直角座標11系）
+
+<img src="06.png" width=70%>
+
+---
+- 「Level_point」というファイル名で保存
+
+<img src="03.png" width=70%>
+
+---
+- 上の方にある「鉛筆マーク」をクリック
+
+<img src="04.png" width=80%>
+
+---
+レイヤの編集モードになる
+
+<img src="05.png" width=80%>
+
+---
+地物の追加
+
+<img src="07.png" width=80%>
+
+---
+- 測量点をクリック
+- 標高値を入力
+
+<img src="08.png" width=80%>
+
+---
+## 標高値入力作業
+
+<img src="10.png" width=20%>
+
+30分差し上げますので標高値を入力してください。
+
+---
+### 30分経過
+
+<img src="09.png" width=80%>
+
+---
+「ラスタ」→「解析」→「グリッド（補完）...」
+
+<img src="11.png" width=80%>
+
+---
+- 入力ファイル　=標高の入ったポイントデータ
+- Zフィールド　=標高の入ったフィールド
+- アルゴリズム　＝「指数逆分布」が一番なめらか
+- 指数　　　　　＝2.0〜4.0くらい
+
+<img src="12.png" width=60%>
+
+---
+標高ラスタができる
+
+<img src="13.png" width=80%>
+
+---
+ラスタなので段彩図にできる（Yl-Gr）
+
+<img src="14.png" width=80%>
+
+---
+お好みで（Spectral）
+
+<img src="15.png" width=80%>
+
+>>>
+「お好みで」と言いながら、
+
+カラーパレットにもルールがあります。
+
+Color Brewer
+
+<img src="17.png" width=60%>
+
+>>>
+Paul Tol colour schemes
+
+<img src="18.png" width=60%>
+
+---
+「ラスタ」→「抽出」→「等高線」
+
+<img src="16.png" width=80%>
+
+---
+- 入力ファイル＝「DEM」
+- 等高線間隔　＝「0.1」
+
+<img src="19.png" width=80%>
+
+---
+- ファイル名　　　＝「contour」
+- ファイルの種類　＝「Geopackage」
+- エンコード　　　 =「UTF-8」
+
+<img src="20.png" width=70%>
+
+---
+等高線
+
+<img src="21.png" width=80%>
+
+---
+「ラスタ」→「地形解析」→「陰影図」
+
+<img src="22.png" width=80%>
+
+---
+- 標高レイヤ＝「DEM」
+- 出力形式　＝「GeoTIFF」
+- Zファクタ =「2」
+
+<img src="23.png" width=60%>
+
+---
+ファイル名　「Shade」
+
+<img src="24.png" width=70%>
+
+---
+陰影図の出力
+
+<img src="25.png" width=80%>
+
+---
+「DEM」を段彩図にしてみる
+
+色や方法はお好みで
+
+<img src="26.png" width=60%>
+
+---
+陰影図の「混合モード」は「乗算」
+
+<img src="27.png" width=70%>
+
+---
+<img src="28.png" width=80%>
+
+---
+## 「クリップ」
+
+調査区の範囲で等高線を切り抜く
+
+---
+「レイヤ」→「レイヤの作成」→「新規シェープファイルレイヤ」
+
+<img src="29.png" width=80%>
+
+---
+<img src="31.png" width=60%>
+
+---
+ファイル名：「Clip」
+
+<img src="32.png" width=70%>
+
+---
+- 編集モード切替
+- ポリゴン地物を追加
+
+<img src="33.png" width=70%>
+
+---
+- 調査区の形状をトレース
+- 右クリックで終了
+
+<img src="34.png" width=70%>
+
+---
+id=「01」（整数値なら何でも良い）
+
+<img src="35.png" width=70%>
+
+---
+<img src="36.png" width=70%>
+
+---
+「ベクタ」→「空間演算ツール」→「クリップ」
+
+<img src="29.png" width=80%>
+
+---
+- 「入力レイヤ」→クリップされるデータ（等高線）
+- 「クリップレイヤ」→クリップする範囲（調査区）
+
+<img src="37.png" width=70%>
+
+---
+- 「保存ファイル」→「contour_clip」
+- 「レイヤ名」→「contour_clip」
+
+<img src="38.png" width=50%>
+
+---
+<img src="39.png" width=90%>
+
+---
+ラスタのクリップ
+
+<img src="40.png" width=90%>
+
+---
+「ラスタ」→「抽出」
+
+→「マスクレイヤによるラスタのクリップ」
+
+<img src="41.png" width=80%>
+
+---
+<img src="42.png" width=50%>
+
+---
+<img src="43.png" width=80%>
+
+---
+## 等高線はここまで
+
+
+    </script>
+</section>
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		dependencies: [
+{ src: 'reveal.js-2.6.1/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'reveal.js-2.6.1/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+]
+	</body>
+</html>
