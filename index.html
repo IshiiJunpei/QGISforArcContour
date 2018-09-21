@@ -27,18 +27,20 @@
    <section data-markdown data-separator="^\n---$" data-separator-vertical="^\n>>>$">
     <script type="text/template">
 
-## 等高線を発生させる
+## QGISで等高線
+<br>
+###### Created by Ishii Junpei ( [@ishiijunpei](https://twitter.com/ishiijunpei))
 
 ---
 ## 作業の内容
-
+<br>
 - 紙図面から標高値を取得してポイントベクタを作成する
 - ポイントベクタから標高ラスタを作成する
 - 標高ラスタから等高線を発生させる
 
 ---
-レイヤ→レイヤの作成→新規シェープファイルレイヤ
 <img src="01.png" width=80%>
+レイヤ→レイヤの作成→新規シェープファイルレイヤ
 
 ---
 - タイプ　　　　　　　　　＝点
@@ -46,7 +48,7 @@
 - CRSの指定　　　　　　　＝後ほど説明
 - 名称＝Level　　　タイプ＝小数点付き数値
 
-<img src="02.png" width=50%>
+<img src="02.png" width=45%>
 
 ---
 - EPSGコード　30171
@@ -103,7 +105,7 @@
 - アルゴリズム　＝「指数逆分布」が一番なめらか
 - 指数　　　　　＝2.0〜4.0くらい
 
-<img src="12.png" width=60%>
+<img src="12.png" width=50%>
 
 ---
 標高ラスタができる
@@ -120,7 +122,7 @@
 
 <img src="15.png" width=80%>
 
->>>
+---
 「お好みで」と言いながら、
 
 カラーパレットにもルールがあります。
@@ -129,10 +131,13 @@ Color Brewer
 
 <img src="17.png" width=60%>
 
->>>
+---
 Paul Tol colour schemes
 
 <img src="18.png" width=60%>
+
+---
+## 等高線の生成
 
 ---
 「ラスタ」→「抽出」→「等高線」
@@ -192,20 +197,22 @@ Paul Tol colour schemes
 <img src="27.png" width=70%>
 
 ---
-<img src="28.png" width=80%>
+<img src="28.png" width=100%>
 
 ---
 ## 「クリップ」
-
+<br>
 調査区の範囲で等高線を切り抜く
 
 ---
-「レイヤ」→「レイヤの作成」→「新規シェープファイルレイヤ」
+「レイヤ」→「レイヤの作成」
+
+→「新規シェープファイルレイヤ」
 
 <img src="29.png" width=80%>
 
 ---
-<img src="31.png" width=60%>
+<img src="31.png" width=50%>
 
 ---
 ファイル名：「Clip」
@@ -250,7 +257,7 @@ id=「01」（整数値なら何でも良い）
 <img src="38.png" width=50%>
 
 ---
-<img src="39.png" width=90%>
+<img src="39.png" width=100%>
 
 ---
 ラスタのクリップ
@@ -268,10 +275,15 @@ id=「01」（整数値なら何でも良い）
 <img src="42.png" width=50%>
 
 ---
-<img src="43.png" width=80%>
+<img src="43.png" width=100%>
 
 ---
 ## 等高線はここまで
+<br>
+- ベクタポイントからDEMを出力する方法は応用が広い
+- クリップ機能を利用したベクタやラスタの切り抜きは、分析的な作業の前段処理で必ず使う
+
+
 
 
     </script>
