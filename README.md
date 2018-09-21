@@ -33,7 +33,7 @@ Created by Ishii Junpei ( [@ishiijunpei](https://twitter.com/ishiijunpei))
 ---
 レイヤ→レイヤの作成→新規シェープファイルレイヤ
 
-<img src="01.png" width=80%>
+<img src="01.png" width=90%>
 
 ### 新規ファイルの設定
 
@@ -42,8 +42,7 @@ Created by Ishii Junpei ( [@ishiijunpei](https://twitter.com/ishiijunpei))
 - CRSの指定　　　　　　　＝後ほど説明
 - 名称＝Level　　　タイプ＝小数点付き数値
 
-<img src="02.png" width=45%>
-
+<img src="02.png" width=50%>
 
 - EPSGコード　30171
 - Tokyo/Japan Plane Rectangular CS XI（日本測地系平面直角座標11系）
@@ -55,16 +54,17 @@ Created by Ishii Junpei ( [@ishiijunpei](https://twitter.com/ishiijunpei))
 
 <img src="03.png" width=70%>
 
-
+---
+### 標高値の入力
 上の方にある「鉛筆マーク」をクリック
 
-<img src="04.png" width=80%>
+<img src="04.png" width=90%>
 
 レイヤの編集モードになる
 
-<img src="05.png" width=80%>
+<img src="05.png" width=90%>
 
-
+---
 ### 地物の追加
 
 <img src="07.png" width=80%>
@@ -74,16 +74,16 @@ Created by Ishii Junpei ( [@ishiijunpei](https://twitter.com/ishiijunpei))
 
 <img src="08.png" width=80%>
 
-### 標高値入力
-
+---
 上記の作業を繰り返して標高値を入力
 
 <img src="09.png" width=80%>
 
-
+---
+### 標高ポイントから標高ラスタを作成
 「ラスタ」→「解析」→「グリッド（補完）...」
 
-<img src="11.png" width=80%>
+<img src="11.png" width=90%>
 
 - 入力ファイル　=標高の入ったポイントデータ
 - Zフィールド　=標高の入ったフィールド
@@ -92,27 +92,27 @@ Created by Ishii Junpei ( [@ishiijunpei](https://twitter.com/ishiijunpei))
 
 <img src="12.png" width=50%>
 
-
+---
 標高ラスタができる
 
 <img src="13.png" width=80%>
 
-
+---
 ラスタなので段彩図にできる（Yl-Gr）
 
 <img src="14.png" width=80%>
-
 
 Spectralカラーパレット
 
 <img src="15.png" width=80%>
 
+---
 ### 等高線の生成
+標高ラスタから投稿セインを生成します。
 
-「ラスタ」→「抽出」→「等高線」
+- 「ラスタ」→「抽出」→「等高線」
 
-<img src="16.png" width=80%>
-
+<img src="16.png" width=90%>
 
 - 入力ファイル＝「DEM」
 - 等高線間隔　＝「0.1」
@@ -125,12 +125,13 @@ Spectralカラーパレット
 
 <img src="20.png" width=70%>
 
-
+---
 ### 等高線
 
 <img src="21.png" width=80%>
 
-
+---
+### 陰影図の作成
 「ラスタ」→「地形解析」→「陰影図」
 
 <img src="22.png" width=80%>
@@ -142,37 +143,34 @@ Spectralカラーパレット
 
 <img src="23.png" width=60%>
 
-
 ファイル名　「Shade」
 
 <img src="24.png" width=70%>
 
-
+---
 ### 陰影図の出力
 
-<img src="25.png" width=80%>
+<img src="25.png" width=90%>
 
-
+---
 ### 「DEM」を段彩図にする
 
 <img src="26.png" width=60%>
-
 
 陰影図の「混合モード」は「乗算」
 
 <img src="27.png" width=70%>
 
+<img src="28.png" width=90%>
 
-<img src="28.png" width=100%>
-
-
+---
 ## 調査区の形状に「クリップ」
 
 調査区の範囲で等高線を切り抜きます。
 
-「レイヤ」→「レイヤの作成」→「新規シェープファイルレイヤ」
+- 「レイヤ」→「レイヤの作成」→「新規シェープファイルレイヤ」
 
-<img src="01.png" width=80%>
+<img src="01.png" width=90%>
 
 - タイプ＝ポリゴン
 - ファイルエンコーディング＝UTF-8
@@ -184,65 +182,74 @@ Spectralカラーパレット
 
 <img src="32.png" width=70%>
 
+---
+調査区をトレースしてポリゴンを作成します。
+
 - 編集モード切替
 - ポリゴン地物を追加
 
-<img src="33.png" width=70%>
+<img src="33.png" width=90%>
 
 - 調査区の形状をトレース
 - 最終点をクリックしてから、右クリックで終了
 
-<img src="34.png" width=70%>
+<img src="34.png" width=90%>
 
 id=「01」（整数値なら何でも良い）
 
-<img src="35.png" width=70%>
+<img src="35.png" width=90%>
 
-### 調査区形状ポリゴン
+### 調査区ポリゴン
 
-<img src="36.png" width=70%>
+<img src="36.png" width=90%>
 
-「ベクタ」→「空間演算ツール」→「クリップ」
+---
+### 調査区ポリゴンで等高線をクリップ
 
-<img src="29.png" width=80%>
+-「ベクタ」→「空間演算ツール」→「クリップ」
 
+<img src="29.png" width=90%>
 
+---
 - 「入力レイヤ」→クリップされるデータ（等高線）
 - 「クリップレイヤ」→クリップする範囲（調査区）
 
 <img src="37.png" width=70%>
-
 
 - 「保存ファイル」→「contour_clip」
 - 「レイヤ名」→「contour_clip」
 
 <img src="38.png" width=50%>
 
+---
 ### 調査区ポリゴンでクリップされた等高線
 
-<img src="39.png" width=100%>
+<img src="39.png" width=90%>
 
 
 ### ラスタのクリップ
+等高線と同様に標高ラスタも調査区ポリゴンでクリップします。
 
 <img src="40.png" width=90%>
 
 
 「ラスタ」→「抽出」→「マスクレイヤによるラスタのクリップ」
 
-<img src="41.png" width=80%>
+<img src="41.png" width=90%>
 
+---
 - 入力レイヤ（クリップされる側のレイヤ）＝DEM
 - マスクレイヤ（クリップする側のレイヤ）＝Clip
 - クリップされた新たなラスタデータの名前を指定して保存＝DEM_clip.tif
 
 <img src="42.png" width=50%>
 
+---
 ### クリップされたラスタレイヤ
 
 <img src="43.png" width=100%>
 
-
+---
 ## 作業のまとめ
 
 - ベクタポイントからDEMを出力する方法は応用が広いのでぜひマスターしてください。
